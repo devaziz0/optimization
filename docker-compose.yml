@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/home/server
+  react:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    depends_on:
+      - flask
+    volumes:
+      - ./frontend:/app
+      - ./frontend/node_modules:/app/node_modules
+    ports:
+    - "3000:3000"
+    command: npm start
+
