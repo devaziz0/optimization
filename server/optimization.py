@@ -1,5 +1,4 @@
 import itertools
-import math
 import random
 import threading
 import time
@@ -25,7 +24,6 @@ def naive(lists, m):
         if max(max_mod) == max_rest:
             break
     lists_max = max(max_mod)
-    print(f"Found max: {lists_max}")
     et = time.time()
     return et - st,lists_max
 
@@ -60,7 +58,6 @@ def efficient(lists, m):
         if combo_max == max_rest:
             break
     lists_max = max(max_mod)
-    print(f"Found max: {lists_max}")
     
     et = time.time()
     return et - st,lists_max
@@ -68,9 +65,9 @@ def efficient(lists, m):
 
 
 
-def stats(num_lists, num_elements, replications, method,tests_list=None):
+def stats(num_lists, num_elements, replications, method):
 
-    m = 9999
+    m = random.randint(1000,5000)
     threads = [None] * replications
     results = [0] * replications
 
@@ -83,6 +80,5 @@ def stats(num_lists, num_elements, replications, method,tests_list=None):
     for i in range(len(threads)):
         threads[i].join()        
     
-    print('Execution time:', sum(results)/len(results), 'seconds')
     return sum(results)/len(results)
 

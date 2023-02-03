@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import logging
 from server.optimization import efficient, naive, stats
-from server.utils import generate_random_list, generate_test_data
+from server.utils import generate_test_data
 app = Flask(__name__)
 
 logging.basicConfig(level=logging.DEBUG)
