@@ -169,7 +169,7 @@ export function EvaluateEndpoint() {
                 label={"Repetitions"}
                 element={numRepetition}
                 handler={setRepetition}
-                paramChoices={[1, 2, 4, 6]}
+                paramChoices={[4,8,12,16]}
 
 
             />
